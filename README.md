@@ -72,7 +72,11 @@ There are 7442 audio samples in CREMA-D spanning 6 emotional states:
 5. Disgust: Repulsed, grossed out state (849 samples)
 6. Neutral: No apparent emotion (1733 samples)
 
+![image](https://github.com/Dhavan06/ML-and-DL-Models/assets/124259299/fd7c9faa-35e9-425f-b4c1-9d9278591800)
+
 ## Deep Learning Models
+
+![image](https://github.com/Dhavan06/ML-and-DL-Models/assets/124259299/13eb5134-7aa4-419a-875e-fb22117fa8e9)
 
 I explored several deep neural network architectures for speech emotion recognition task, including recurrent neural networks (RNNs), convolutional neural networks (CNNs), and hybrid models.
 
@@ -93,6 +97,11 @@ Since our training dataset was limited in size, we leveraged data augmentation t
 By augmenting the original limited training data via these noise, time, and pitch alterations, we obtained a more robust model. The augmentations introduce useful variations to prevent overfitting. The model learns invariance to noise, speaking rate, pitch, and other distortions - thereby generalizing better to unseen test speech. Between them, the augmentations span different distortion types like additive noise, tempo/speed, and pitch fluctuations.
 
 ## Results
+This presents a detailed analysis and discussion of the key findings from the experiments conducted to develop and evaluate recurrent neural network models for speech emotion recognition on the CREMA-D dataset. The results are structured into sections based on the different model architectures explored, highlighting their key performance metrics, confusion patterns, and characteristics. The presented findings are interpreted to derive meaningful inferences regarding the viability of employing RNNs for speech emotion classification.
+Dataset description in methodology can be expanded with stunning visuals given below providing an insight in the structure of different phases of the same dataset.
+
+![image](https://github.com/Dhavan06/ML-and-DL-Models/assets/124259299/018017f4-d056-438b-9d48-d46e3bd2c027)
+
 
 **Simple RNN Model Results**
 
@@ -103,6 +112,10 @@ The model obtained a training accuracy of 81.41% and test accuracy of 51.38% aft
 
 The weighted F1 score for the model was 0.48 reflecting suboptimal classification capability across emotions. Reviewing the classification report shows poor F1 scores below 0.6 for most classes apart from neutral speech which achieved 0.75 F1 score. This implies the model has only learned to reliably identify neutral speech from emotional speech rather than differentiating between specific emotions.
 The Simple RNN model exhibits a baseline level of performance, with an accuracy of 50%. This indicates that it can correctly classify half of the test instances, which is only marginally better than random guessing in a balanced six-class problem. The model's precision and recall are also reflective of this middling performance, with values hovering around the 0.49 and 0.50 marks respectively. Such metrics suggest that the model is not particularly adept at minimizing false positives and false negatives, maintaining a performance that does not strongly either sensitivity or specificity.
+
+![image](https://github.com/Dhavan06/ML-and-DL-Models/assets/124259299/0395d3ed-fc7e-4a2c-9809-8a66954d4269)
+
+![Image](https://github.com/users/Dhavan06/projects/1/assets/124259299/1266b151-e0e1-4917-aaf9-38adae8733cd)
 
 **LSTM CNN Model Results**
 
@@ -115,11 +128,9 @@ Analyzing the classification report shows the LSTM network attains an F1 score g
 
 Therefore, unlike the Simple RNN model, the LSTM architecture more effectively learns to discriminate between emotions by modelling the temporal sequencing in speech. The additions of Dropout and Dense layers further enable abstracting emotion-specific features from LSTM encodings to support multi-class classification.
 
-
+![image](https://github.com/Dhavan06/ML-and-DL-Models/assets/124259299/4136beb8-b3c5-4242-a900-c27f081169de)
 
 ![Image](https://github.com/users/Dhavan06/projects/1/assets/124259299/affa66cf-204a-4c0d-b756-a81b4c0701a5)
-
-![Image](https://github.com/users/Dhavan06/projects/1/assets/124259299/1266b151-e0e1-4917-aaf9-38adae8733cd)
 
 **Model Limitations**
 
@@ -128,7 +139,7 @@ Despite showing promising performance for clean single-speaker emotional speech,
 2. Classification performance drops rapidly in noisy conditions as acoustic distortions easily obscure emotion-salient speech parameters. Improving model robustness through noise injection and multi-condition training is essential.
 3. The models demonstrate a baseline recognition capability only differentiating between broad emotion categories rather than granular affective sub-states. Advancing encoder complexities will help capture finer vocal nuances.
 
-CONCLUSION
+**CONCLUSION**
 
 This thesis aimed to advance speech emotion recognition methodology through comprehensive investigation of recurrent neural network architectures on the CREMA-D dataset. Experiments were structured around key research questions evaluating RNN model viability, discriminative input features, data augmentation impact and comparative performance gains over conventional classifiers. The rigorous protocols yielded several valuable conclusions regarding the effectiveness of employing LSTMs to decode affective states from vocal intonations in emotional speech.
 
